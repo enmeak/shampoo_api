@@ -3,14 +3,17 @@ var Schema = mongoose.Schema;
 
 
 var UserSchema = new Schema({
-  name: {
-    type: String
+  user_name: {
+    type: String,
+    required: "please provide a user name"
   },
   password: {
-    type: String
+    type: String,
+    required: "please provide a password"
   },
   team: {
-    type: String
+    type: String,
+    required: "please provide a team"
   }
 });
 
