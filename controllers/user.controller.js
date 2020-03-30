@@ -32,13 +32,11 @@ exports.create_a_user = function(req, res) {
 
 exports.authenticate_user = function(req, res) {
   User.findOne({ "user_name" : req.params.user_name }, function(err, user) {
-    console.log(user);
     if (err) res.send(err);
     if (user.password == req.params.password) {
       res.send(true);
-    } else {
-      res.send(false);
     }
+    res.send(false);
   });
 };
 
