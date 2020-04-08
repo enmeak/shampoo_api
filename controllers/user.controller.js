@@ -31,20 +31,28 @@ exports.create_a_user = function(req, res) {
 };
 
 exports.authenticate_user = function(req, res) {
-  User.findOne({ "user_name" : req.params.user_name }, function(err, user) {
-    if (err) res.send(err);
-    if (user.password == req.params.password) {
-      res.send(true);
-    }
-    res.send(false);
-  });
+  User.exists({"user_name" : req.params.user_name}, function (err, result) {
+    if (result) {
+      User.findOne({ "user_name" : req.params.user_name }, function(err, user) {
+        if (err) res.send(false);
+        if (user.password == req.params.password) {
+          res.send(true);
+        }
+        else res.send(false);
+      });
+    } else res.send(false);
+  })
 };
 
-exports.user_exists = function (req, res) {
-  User.findOne({"user_name" : req.params.user_name}, function (err, user) {
-    if (err) res.send(err);
-    if (user == null) res.send(false)
-    else res.send(true)
+function user_exists(user_name) {
+  User.exists({"user_name" : user_name}, function (err, result) {
+    if (result == true) {
+      console.log("yay")
+      return 'true'
+    } else {
+      console.log("nay")
+      return 'false'
+    }
   })
 }
 // exports.update_a_task = function(req, res) {

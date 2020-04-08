@@ -12,9 +12,5 @@ module.exports = function(app) {
   
   app.route('/users/')
     .get(userFunctions.get_user_list)
-    
-
-  app.route('/users/:user_name')
-    .get(userFunctions.user_exists)
 };
 
