@@ -1,16 +1,16 @@
 module.exports = function(app) {
-  var userFunctions = require('../controllers/user.controller.js');
+  var userFunctions = require("../controllers/user.controller.js");
 
-  // todoList Routes
-  app.route('/users/signIn/:user_name/:password')
+  // sign in route
+  app
+    .route("/users/signIn/:user_name/:password")
     .get(userFunctions.authenticate_user);
 
+  // sign up route
+  app
+    .route("/users/signUp/:user_name/:password/:team")
+    .get(userFunctions.create_a_user);
 
-  app.route('/users/signUp/:user_name/:password/:team')
-    .get(userFunctions.create_a_user)
-
-  
-  app.route('/users/')
-    .get(userFunctions.get_user_list)
+  // users list route
+  app.route("/users/").get(userFunctions.get_user_list);
 };
-

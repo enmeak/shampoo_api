@@ -5,7 +5,6 @@ const express = require("express"),
   User = require("./models/user.model.js"), //created model loading here
   bodyParser = require("body-parser");
 
-
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/shampoo");
