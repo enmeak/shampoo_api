@@ -14,7 +14,13 @@ var UserSchema = new Schema({
   team: {
     type: String,
     required: "please provide a team"
-  }
+  },
+  exams: [
+    {
+      exam_name: String,
+      answers: {}
+    }
+  ]
 });
 
 module.exports = mongoose.model('Users', UserSchema);
