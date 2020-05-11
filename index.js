@@ -3,6 +3,7 @@ const express = require("express"),
   port = process.env.PORT || 5000,
   mongoose = require("mongoose"),
   User = require("./models/user.model.js"), //created model loading here
+  Exam = require("./models/exam.model.js")
   bodyParser = require("body-parser");
 
 // mongoose instance connection url connection
@@ -34,8 +35,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-var routes = require("./routes/user.route.js"); //importing route
-routes(app); //register the route
+require("./routes/user.route.js")(app); //importing route
+require("./routes/exam.route.js")(app);
 
 app.listen(port);
 

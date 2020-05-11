@@ -16,7 +16,7 @@ exports.create_a_user = function(req, res) {
   const user_name = req.params.user_name;
   const password = req.params.password;
   const team = req.params.team;
-  console.log(user_name, password, team);
+  
   var new_user = new User({
     user_name: user_name,
     password: password,
@@ -54,3 +54,8 @@ function user_exists(user_name) {
     }
   });
 }
+
+// return name exams and scores of the user
+
+
+// 

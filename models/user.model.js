@@ -18,7 +18,8 @@ var UserSchema = new Schema({
   exams: [
     {
       exam_name: String,
-      answers: {}
+      answers: {},
+      score: Number
     }
   ]
 });

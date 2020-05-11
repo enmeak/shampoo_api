@@ -7,7 +7,7 @@ var ExamSchema = new Schema({
     team: String,
     questions:[
         {
-            qustion: String,
+            question: String,
             answers:[
                 {
                     answer: String, 
