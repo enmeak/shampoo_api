@@ -58,4 +58,7 @@ function user_exists(user_name) {
 // return name exams and scores of the user
 
 
-// 
+// save finished exam under user
+exports.save_exam_results = function (req, res) {
+  User.findOneAndUpdate({"user_name": req.params.user_name}, {"exam": req.body})
+}

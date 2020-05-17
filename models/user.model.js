@@ -3,22 +3,18 @@ var Schema = mongoose.Schema;
 
 
 var UserSchema = new Schema({
-  user_name: {
-    type: String,
-    required: "please provide a user name"
-  },
-  password: {
-    type: String,
-    required: "please provide a password"
-  },
-  team: {
-    type: String,
-    required: "please provide a team"
-  },
+  user_name: String,
+  password: String,
+  team: String,
   exams: [
     {
       exam_name: String,
-      answers: {},
+      answers: [
+        {
+          id_question: String,
+          id_answer: String
+        }
+      ],
       score: Number
     }
   ]

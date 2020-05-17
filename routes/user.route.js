@@ -14,5 +14,6 @@ module.exports = function(app) {
   // users list route
   app.route("/users/").get(userFunctions.get_user_list);
 
-  
+  // save finished exam under user
+  app.route("/users/:user_name/:exam_name/save_exam_result").post(userFunctions.save_exam_results)
 };
